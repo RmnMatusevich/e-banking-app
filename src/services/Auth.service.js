@@ -15,6 +15,20 @@ class AuthService {
     return response?.data;
   }
 
+  async signInAdmin(data) {
+    console.log(data);
+    
+    const response = await this.api({
+      method: "post",
+      url: "auth/admin/login",
+      data,
+    });
+    if (response.data) {
+      localStorage.setItem("token", response.data.token);
+    }
+    return response?.data;
+  }
+
   async signUp(data) {
     const response = await this.api({
       method: "post",

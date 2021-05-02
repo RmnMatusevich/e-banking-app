@@ -6,7 +6,7 @@ const AuthContainer = ({ title, children }) => {
   return (
     <div className={styles.root}>
       <div className={styles.container}>
-        <Typography variant="h3" className={styles.title}>
+        <Typography variant="h1" className={styles.title}>
           {title}
         </Typography>
         {children}

@@ -5,6 +5,7 @@ import AccountCard from "../../components/AcccountCard";
 import api from "../../services";
 import styles from "./styles.module.scss";
 import { useAccount } from "../../context/AccountProvider";
+import HeaderContainer from "../../components/HeaderContainer";
 
 const Wallet = () => {
   const user = useUser();
@@ -23,10 +24,12 @@ const Wallet = () => {
   }, []);
 
   return (
-    <div className={styles.root}>
-      <UserCard />
-      <AccountCard />
-    </div>
+    <HeaderContainer>
+      <div className={styles.root}>
+        <UserCard />
+        <AccountCard />
+      </div>
+    </HeaderContainer>
   );
 };
 

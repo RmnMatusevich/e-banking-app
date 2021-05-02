@@ -36,7 +36,7 @@ const DepositCard = ({ account }) => {
   const handleSave = async () => {
     const newDeposit = await api.deposit.create({
       amount: Number(amount.value),
-      percent: 12,
+      percent: 0.01,
       accountId: account.id,
     });
     if (newDeposit.address) {

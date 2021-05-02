@@ -4,6 +4,7 @@ import UserService from "./User.service";
 import AccountService from "./Account.service";
 import CreditService from "./Credit.service";
 import DepositService from "./Deposit.service";
+import AdminService from "./Admin.service";
 
 const token = localStorage.getItem("token") || "";
 
@@ -19,6 +20,7 @@ const api = {
   account: new AccountService(instance),
   credit: new CreditService(instance),
   deposit: new DepositService(instance),
+  admin: new AdminService(instance)
 };
 
 export default api;

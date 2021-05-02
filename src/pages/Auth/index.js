@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import SignInForm from "../../components/Form/SignInForm";
 import SignUpForm from "../../components/Form/SignUpForm";
 import AuthContainer from "../../components/AuthContainer";
@@ -24,14 +24,30 @@ const Auth = () => {
     <AuthContainer title={step === 0 ? "Sign in" : "Sign Up"}>
       {step === 0 && <SignInForm />}
       {step === 1 && <SignUpForm />}
-      <div className={styles.buttons}>
+      {/* <div className={styles.buttons}>
         <Button variant="outlined" color="primary" onClick={goToSignIn}>
           Sign In
         </Button>
         <Button variant="outlined" color="primary" onClick={goToSignUp}>
           Sign Up
         </Button>
-      </div>
+      </div> */}
+      {step === 0 && (
+        <Typography variant="h6">
+          Don't have profile now?{" "}
+          <span onClick={goToSignUp} className={styles.link}>
+            Sign up here
+          </span>
+        </Typography>
+      )}
+      {step === 1 && (
+        <Typography variant="h6">
+          Do you already had profile?{" "}
+          <span onClick={goToSignIn} className={styles.link}>
+            Sign in here
+          </span>
+        </Typography>
+      )}
     </AuthContainer>
   );
 };
