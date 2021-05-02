@@ -7,6 +7,7 @@ import CreditCard from "../../components/CreditCard";
 import api from "../../services";
 import styles from "./styles.module.scss";
 import { useAccount } from "../../context/AccountProvider";
+import HeaderContainer from "../../components/HeaderContainer";
 
 const Account = ({ location }) => {
   const accountFormRoute = location.state.account;
@@ -24,15 +25,20 @@ const Account = ({ location }) => {
       account.setAccount(accounts);
     })();
   }, []);
+  console.log(accountFormRoute);
 
   return (
-    <div className={styles.root}>
-      <UserCard />
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <DepositCard account={accountFormRoute} />
-        <CreditCard account={accountFormRoute} />
+    <HeaderContainer
+      title={`Address: ${accountFormRoute.address}, amount: $${accountFormRoute.amount}`}
+    >
+      <div className={styles.root}>
+        <UserCard />
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <DepositCard account={accountFormRoute} />
+          <CreditCard account={accountFormRoute} />
+        </div>
       </div>
-    </div>
+    </HeaderContainer>
   );
 };
 
