@@ -5,7 +5,13 @@ import {
   TextField,
   Button,
   CircularProgress,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  FormLabel,
 } from "@material-ui/core";
+import { Autocomplete } from "@material-ui/lab";
+import { countries, cities } from "../../../resources/geo";
 import { useUser } from "../../../context/UserProvider";
 import { verifyEmail, verifyPassword } from "../../../helpers/validate.helper";
 import styles from "./styles.module.scss";
@@ -43,11 +49,17 @@ const SignUpForm = ({ history }) => {
   const [phoneHome, setPhoneHome] = useState(defaultValues);
   const [jobPlace, setJobPlace] = useState(defaultValues);
   const [jobPosition, setJobPosition] = useState(defaultValues);
-  const [placeOfResidence, setPlaceOfResidence] = useState(defaultValues);
+  const [placeOfResidence, setPlaceOfResidence] = useState({
+    ...defaultValues,
+    value: "false",
+  });
   const [maritalStatus, setMaritalStatus] = useState(defaultValues);
   const [citizenship, setCitizenship] = useState(defaultValues);
   const [disability, setDisability] = useState(defaultValues);
-  const [pensioner, setPensioner] = useState(defaultValues);
+  const [pensioner, setPensioner] = useState({
+    ...defaultValues,
+    value: false,
+  });
   const [monthlyIncome, setMonthlyIncome] = useState(defaultValues);
 
   const user = useUser();
@@ -77,7 +89,7 @@ const SignUpForm = ({ history }) => {
       maritalStatus: maritalStatus.value,
       citizenship: citizenship.value,
       disability: disability.value,
-      pensioner: pensioner.value === "true",
+      pensioner: pensioner.value,
       monthlyIncome: monthlyIncome.value,
     });
 
@@ -128,17 +140,25 @@ const SignUpForm = ({ history }) => {
         className={styles.input}
         onChange={(e) => setLastName({ value: e.target.value })}
       />
-      <TextField
-        label="Country"
-        variant="outlined"
+      <Autocomplete
+        id="countries-box"
+        options={countries}
+        getOptionLabel={(option) => option}
+        onSelect={(e) => setCountry({ value: e.target.value })}
         className={styles.input}
-        onChange={(e) => setCountry({ value: e.target.value })}
+        renderInput={(params) => (
+          <TextField {...params} label="Country" variant="outlined" />
+        )}
       />
-      <TextField
-        label="City"
-        variant="outlined"
+      <Autocomplete
+        id="cities-box"
+        options={cities}
+        getOptionLabel={(option) => option}
+        onSelect={(e) => setCity({ value: e.target.value })}
         className={styles.input}
-        onChange={(e) => setCity({ value: e.target.value })}
+        renderInput={(params) => (
+          <TextField {...params} label="City" variant="outlined" />
+        )}
       />
       <TextField
         label="Phone"
@@ -234,6 +254,18 @@ const SignUpForm = ({ history }) => {
         className={styles.input}
         onChange={(e) => setPlaceOfResidence({ value: e.target.value })}
       />
+      <FormLabel component="legend">
+        Are you fit for military service?
+      </FormLabel>
+      <RadioGroup
+        aria-label="military"
+        name="military"
+        value={placeOfResidence.value}
+        onChange={(e) => setPlaceOfResidence({ value: e.target.value })}
+      >
+        <FormControlLabel value={"true"} control={<Radio />} label="Yes" />
+        <FormControlLabel value={"false"} control={<Radio />} label="No" />
+      </RadioGroup>
       <TextField
         label="Marital status"
         variant="outlined"
@@ -252,16 +284,21 @@ const SignUpForm = ({ history }) => {
         className={styles.input}
         onChange={(e) => setDisability({ value: e.target.value })}
       />
-      <TextField
-        label="Pensioner"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => setPensioner({ value: e.target.value })}
-      />
+      <FormLabel component="legend">Are you a pensioner?</FormLabel>
+      <RadioGroup
+        aria-label="pensioner"
+        name="pensioner"
+        value={pensioner.value}
+        onChange={(e) => setPensioner({ value: e.target.value === "true" })}
+      >
+        <FormControlLabel value={true} control={<Radio />} label="Yes" />
+        <FormControlLabel value={false} control={<Radio />} label="No" />
+      </RadioGroup>
       <TextField
         label="Monthly Income"
         variant="outlined"
         className={styles.input}
+        type="number"
         onChange={(e) => setMonthlyIncome({ value: e.target.value })}
       />
       <Button
