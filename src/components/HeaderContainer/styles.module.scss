@@ -8,8 +8,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: #fff502;
+  padding: 5px 16px;
 }
-
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  height: 94px;
+}
 .image {
   height: 60px;
   width: auto;

@@ -23,24 +23,24 @@ const Auth = () => {
 
   return (
     <AuthContainer title={step === 0 ? "Sign in" : "Sign Up"}>
-      {step === 0 && <SignInForm />}
-      {step === 1 && <SignUpForm />}
       {step === 0 && (
         <Typography variant="h6">
-          Don't have profile now?{" "}
+          Go to{" "}
           <span onClick={goToSignUp} className={styles.link}>
-            Sign up here
+            Sign up
           </span>
         </Typography>
       )}
       {step === 1 && (
         <Typography variant="h6">
-          Do you already had profile?{" "}
+          Go to{" "}
           <span onClick={goToSignIn} className={styles.link}>
-            Sign in here
+            Sign in
           </span>
         </Typography>
       )}
+      {step === 0 && <SignInForm />}
+      {step === 1 && <SignUpForm />}
     </AuthContainer>
   );
 };

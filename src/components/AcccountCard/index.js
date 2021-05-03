@@ -24,7 +24,6 @@ const AccountCard = () => {
       <CardContainer
         className={styles.item}
         onClick={() => {
-          // history.push(`/wallet/${item.address}`, item);
           history.push({
             pathname: `/wallet/${item.address}`,
             state: { account: item },
@@ -43,13 +42,13 @@ const AccountCard = () => {
       onAdd={handleSave}
       Item={Item}
       items={account.account}
-      addTitle="Create new Account"
-      addDescription="Let create new account which you can manage. Simply enter the amount of
-      the new account."
+      className={styles.card}
+      addTitle="Create account"
+      addDescription="Please enter the amount of new account. It like pass the amount into input field and new account would be created with the amount that you passed in."
     >
       <TextField
         label="Amount"
-        variant="outlined"
+        variant="standard"
         className={styles.input}
         onChange={(e) => setAmount({ value: e.target.value })}
       />

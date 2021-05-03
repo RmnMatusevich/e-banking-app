@@ -1,16 +1,10 @@
 import React from "react";
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-  Slide,
-  Button,
-} from "@material-ui/core";
+import { Dialog, DialogActions, Slide, Typography } from "@material-ui/core";
+import ButtonGroup from "../ButtonGroup";
+import styles from "./styles.module.scss";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return <Slide direction="right" ref={ref} {...props} />;
 });
 
 const AddDialog = ({
@@ -22,20 +16,23 @@ const AddDialog = ({
   children,
 }) => {
   return (
-    <Dialog open={open} TransitionComponent={Transition} onClose={handleClose}>
-      <DialogTitle>{title}</DialogTitle>
-      <DialogContent>
-        <DialogContentText>{description}</DialogContentText>
-        {children}
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose} color="primary">
-          Cancel
-        </Button>
-        <Button onClick={handleSave} color="primary">
-          Save
-        </Button>
-      </DialogActions>
+    <Dialog
+      open={open}
+      TransitionComponent={Transition}
+      onClose={handleClose}
+      classes={{ paper: styles.dialogRoot, container: styles.container }}
+    >
+      <Typography variant="h2" className={styles.title}>
+        {title}
+      </Typography>
+      <Typography variant="h6">{description}</Typography>
+      {children}
+      <ButtonGroup
+        saveTitle="Save"
+        cancelTitle="Cancel"
+        handleCancel={handleClose}
+        handleSave={handleSave}
+      />
     </Dialog>
   );
 };

@@ -6,7 +6,7 @@ const white = "#FFFFFF";
 const offWhite = "#fcfcfc";
 const light = "#f6f8f9";
 const black = "#000000";
-
+const yellow = "#fff502";
 const skyBlue = "#00A0FF";
 const skyBlueShade = "#0097f6";
 const skyBlueHover = "#f2f9fd";
@@ -114,6 +114,7 @@ const palette = {
   light,
   intercom,
   linkedIn,
+  yellow,
 };
 
 export default palette;

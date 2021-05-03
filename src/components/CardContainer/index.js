@@ -3,20 +3,18 @@ import { makeStyles } from "@material-ui/core";
 import cn from "classnames";
 const useStyles = makeStyles((theme) => ({
   card: {
-    border: "1px solid #e4e6e7",
     borderRadius: 6,
-    backgroundColor: theme.palette.white,
-    padding: theme.spacing(3),
+    border: `1px dashed #394648`,
+    backgroundColor: theme.palette.yellow,
+    borderStyle: "10px",
+    backgroundSize: "3px 3px",
+    padding: theme.spacing(2),
     cursor: "pointer",
     height: "min-content",
     "&:hover": {
-      boxShadow:
-        "0 3px 4px 0 rgba(15, 28, 36, 0.06), 0 20px 24px -6px rgba(15, 28, 36, 0.12)",
-      "& $editIcon": {
-        opacity: 1,
-      },
+      boxShadow: "16px 16px 17px -8px rgba(0, 0, 0, 0.27)",
     },
-    transition: "0.3s ease",
+    transition: "0.1s ease",
     display: "flex",
     flexDirection: "column",
   },

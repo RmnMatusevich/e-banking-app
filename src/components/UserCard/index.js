@@ -22,27 +22,68 @@ const useStyles = makeStyles((theme) => ({
 const UserCard = () => {
   const user = useUser();
   const classes = useStyles();
+  const {
+    id,
+    firstName,
+    lastName,
+    email,
+    phone,
+    setUser,
+    updatedAt,
+    createdAt,
+    country,
+    city,
+    address,
+    postalCode,
+    token,
+    ...rest
+  } = user;
 
   return (
     <CardContainer>
       <div className={classes.userWithAvatar}>
         <Avatar classes={{ root: classes.avatar }}>
-          {user.firstName && user.firstName[0]}
-          {user.lastName && user.lastName[0]}
+          {firstName && firstName[0]}
+          {lastName && lastName[0]}
         </Avatar>
         <Typography variant={"h3"}>
-          {user.firstName} {user.lastName}
+          {firstName} {lastName}
         </Typography>
       </div>
       <div className={classes.userDetails}>
-        <Typography variant={"h5"}>{user.email}</Typography>
-        <Typography variant={"h5"}>{user.phone}</Typography>
-        <Typography variant={"h6"}>
-          {user.country}, {user.city}
-        </Typography>
-        <Typography variant={"h6"}>
-          {user.address}, {user.postalCode}
-        </Typography>
+        <div
+          style={{
+            margin: "4px 0",
+            padding: 6,
+            border: "1px dashed #394648",
+            borderRadius: "5px",
+          }}
+        >
+          <Typography variant={"h5"}>{email}</Typography>
+          <Typography variant={"h5"}>{phone}</Typography>
+          <Typography variant={"h6"}>
+            {country}, {city}
+          </Typography>
+          <Typography variant={"h6"}>
+            {address}, {postalCode}
+          </Typography>
+        </div>
+        <div
+          style={{
+            margin: "4px 0",
+            padding: 6,
+            border: "1px dashed #394648",
+            borderRadius: "5px",
+          }}
+        >
+          {Object.keys(rest).map((i, idx) => {
+            return (
+              <Typography variant={"h6"} key={`${id}-${idx}-${rest[i]}`}>
+                {rest[i]}
+              </Typography>
+            );
+          })}
+        </div>
       </div>
     </CardContainer>
   );

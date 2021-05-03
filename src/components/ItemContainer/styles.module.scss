@@ -5,15 +5,43 @@
 .topBar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 20px;
 }
 .card {
   width: 100%;
-  margin: 0 20px 20px;
+  margin-bottom: 16px;
 }
 
 .input {
   width: 100%;
+}
+
+.addCard {
+  width: 100%;
+  background-color: #394648;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accordion {
+  padding: 0;
+  border-radius: 6px !important;
+  &:before {
+    display: none;
+  }
+}
+
+.accordionSummary {
+  background-color: #fff502;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.accordionDetails {
+  padding: 26px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

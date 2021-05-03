@@ -111,176 +111,184 @@ const SignUpForm = ({ history }) => {
   };
   return (
     <FormControl className={styles.form}>
-      <TextField
-        label="Email"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => handleEmailChange(e.target.value)}
-        error={email.error.length !== 0}
-        helperText={email.error}
-      />
-      <TextField
-        label="Password"
-        type="password"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => handlePasswordChange(e.target.value)}
-        error={password.error.length !== 0}
-        helperText={password.error}
-      />
-      <TextField
-        label="First name"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => setFirstName({ value: e.target.value })}
-      />
-      <TextField
-        label="Last name"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => setLastName({ value: e.target.value })}
-      />
-      <Autocomplete
-        id="countries-box"
-        options={countries}
-        getOptionLabel={(option) => option}
-        onSelect={(e) => setCountry({ value: e.target.value })}
-        className={styles.input}
-        renderInput={(params) => (
-          <TextField {...params} label="Country" variant="outlined" />
-        )}
-      />
-      <Autocomplete
-        id="cities-box"
-        options={cities}
-        getOptionLabel={(option) => option}
-        onSelect={(e) => setCity({ value: e.target.value })}
-        className={styles.input}
-        renderInput={(params) => (
-          <TextField {...params} label="City" variant="outlined" />
-        )}
-      />
+      <div className={styles.twoInLine}>
+        <TextField
+          style={{ width: "100%" }}
+          label="Email"
+          variant="standard"
+          className={styles.input}
+          onChange={(e) => handleEmailChange(e.target.value)}
+          error={email.error.length !== 0}
+          helperText={email.error}
+        />
+        <TextField
+          style={{ width: "100%" }}
+          label="Password"
+          type="password"
+          variant="standard"
+          className={styles.input}
+          onChange={(e) => handlePasswordChange(e.target.value)}
+          error={password.error.length !== 0}
+          helperText={password.error}
+        />
+      </div>
+      <div className={styles.twoInLine}>
+        <TextField
+          style={{ width: "100%" }}
+          label="First name"
+          variant="standard"
+          className={styles.input}
+          onChange={(e) => setFirstName({ value: e.target.value })}
+        />
+        <TextField
+          style={{ width: "100%" }}
+          label="Last name"
+          variant="standard"
+          className={styles.input}
+          onChange={(e) => setLastName({ value: e.target.value })}
+        />
+      </div>
+      <div className={styles.twoInLine}>
+        <Autocomplete
+          style={{ width: "100%" }}
+          id="countries-box"
+          options={countries}
+          getOptionLabel={(option) => option}
+          onSelect={(e) => setCountry({ value: e.target.value })}
+          className={styles.input}
+          renderInput={(params) => (
+            <TextField {...params} label="Country" variant="standard" />
+          )}
+        />
+        <Autocomplete
+          style={{ width: "100%" }}
+          id="cities-box"
+          options={cities}
+          getOptionLabel={(option) => option}
+          onSelect={(e) => setCity({ value: e.target.value })}
+          className={styles.input}
+          renderInput={(params) => (
+            <TextField {...params} label="City" variant="standard" />
+          )}
+        />
+      </div>
       <TextField
         label="Phone"
-        variant="outlined"
+        variant="standard"
         className={styles.input}
         onChange={(e) => setPhone({ value: e.target.value })}
       />
-      <TextField
-        label="Address"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => setAddress({ value: e.target.value })}
-      />
-      <TextField
-        label="Postal code"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => setPostalCode({ value: e.target.value })}
-      />
-      <TextField
-        label="Phone"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => setPhone({ value: e.target.value })}
-      />
+      <div className={styles.twoInLine}>
+        <TextField
+          style={{ width: "100%" }}
+          label="Address"
+          variant="standard"
+          className={styles.input}
+          onChange={(e) => setAddress({ value: e.target.value })}
+        />
+        <TextField
+          style={{ width: "100%" }}
+          label="Postal code"
+          variant="standard"
+          className={styles.input}
+          onChange={(e) => setPostalCode({ value: e.target.value })}
+        />
+      </div>
       <TextField
         label="Middle name"
-        variant="outlined"
+        variant="standard"
         className={styles.input}
         onChange={(e) => setMiddleName({ value: e.target.value })}
       />
       <TextField
         label="Birth Date"
-        variant="outlined"
+        variant="standard"
         className={styles.input}
         defaultValue={birthDate.value}
         type="date"
         onChange={(e) => setBirthDate({ value: e.target.value })}
       />
-      <TextField
-        label="Passport series"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => setPassportSeries({ value: e.target.value })}
-      />
-      <TextField
-        label="Passport number"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => setPassportNumber({ value: e.target.value })}
-      />
-      <TextField
-        label="Passport issued"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => setPassportIssued({ value: e.target.value })}
-      />
-      <TextField
-        label="Passport identity"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => setPassportIdentity({ value: e.target.value })}
-      />
-      <TextField
-        label="Passport date"
-        variant="outlined"
-        className={styles.input}
-        defaultValue={passportDate.value}
-        type="date"
-        onChange={(e) => setPassportDate({ value: e.target.value })}
-      />
+      <div className={styles.twoInLine}>
+        <TextField
+          label="Passport series"
+          variant="standard"
+          className={styles.input}
+          onChange={(e) => setPassportSeries({ value: e.target.value })}
+        />
+        <TextField
+          label="Passport number"
+          variant="standard"
+          className={styles.input}
+          onChange={(e) => setPassportNumber({ value: e.target.value })}
+        />
+        <TextField
+          label="Passport issued"
+          variant="standard"
+          className={styles.input}
+          onChange={(e) => setPassportIssued({ value: e.target.value })}
+        />
+      </div>
+      <div className={styles.twoInLine}>
+        <TextField
+          style={{ width: "100%" }}
+          label="Passport identity"
+          variant="standard"
+          className={styles.input}
+          onChange={(e) => setPassportIdentity({ value: e.target.value })}
+        />
+        <TextField
+          style={{ width: "100%" }}
+          label="Passport date"
+          variant="standard"
+          className={styles.input}
+          defaultValue={passportDate.value}
+          type="date"
+          onChange={(e) => setPassportDate({ value: e.target.value })}
+        />
+      </div>
       <TextField
         label="Phone home"
-        variant="outlined"
+        variant="standard"
         className={styles.input}
         onChange={(e) => setPhoneHome({ value: e.target.value })}
       />
+      <div className={styles.twoInLine}>
+        <TextField
+          style={{ width: "100%" }}
+          label="Job place"
+          variant="standard"
+          className={styles.input}
+          onChange={(e) => setJobPlace({ value: e.target.value })}
+        />
+        <TextField
+          style={{ width: "100%" }}
+          label="Job position"
+          variant="standard"
+          className={styles.input}
+          onChange={(e) => setJobPosition({ value: e.target.value })}
+        />
+      </div>
       <TextField
-        label="Job place"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => setJobPlace({ value: e.target.value })}
-      />
-      <TextField
-        label="Job position"
-        variant="outlined"
-        className={styles.input}
-        onChange={(e) => setJobPosition({ value: e.target.value })}
-      />
-      <TextField
-        label="Military"
-        variant="outlined"
+        label="Place of residence"
+        variant="standard"
         className={styles.input}
         onChange={(e) => setPlaceOfResidence({ value: e.target.value })}
       />
-      <FormLabel component="legend">
-        Are you fit for military service?
-      </FormLabel>
-      <RadioGroup
-        aria-label="military"
-        name="military"
-        value={placeOfResidence.value}
-        onChange={(e) => setPlaceOfResidence({ value: e.target.value })}
-      >
-        <FormControlLabel value={"true"} control={<Radio />} label="Yes" />
-        <FormControlLabel value={"false"} control={<Radio />} label="No" />
-      </RadioGroup>
       <TextField
         label="Marital status"
-        variant="outlined"
+        variant="standard"
         className={styles.input}
         onChange={(e) => setMaritalStatus({ value: e.target.value })}
       />
       <TextField
         label="Citizenship"
-        variant="outlined"
+        variant="standard"
         className={styles.input}
         onChange={(e) => setCitizenship({ value: e.target.value })}
       />
       <TextField
         label="Disability"
-        variant="outlined"
+        variant="standard"
         className={styles.input}
         onChange={(e) => setDisability({ value: e.target.value })}
       />
@@ -291,12 +299,20 @@ const SignUpForm = ({ history }) => {
         value={pensioner.value}
         onChange={(e) => setPensioner({ value: e.target.value === "true" })}
       >
-        <FormControlLabel value={true} control={<Radio />} label="Yes" />
-        <FormControlLabel value={false} control={<Radio />} label="No" />
+        <FormControlLabel
+          value={true}
+          control={<Radio color="primary" />}
+          label="Yes"
+        />
+        <FormControlLabel
+          value={false}
+          control={<Radio color="primary" />}
+          label="No"
+        />
       </RadioGroup>
       <TextField
         label="Monthly Income"
-        variant="outlined"
+        variant="standard"
         className={styles.input}
         type="number"
         onChange={(e) => setMonthlyIncome({ value: e.target.value })}

@@ -72,13 +72,13 @@ const DepositCard = ({ account }) => {
         onAdd={handleSave}
         Item={Item}
         items={deposits}
-        addTitle="Create new Deposit"
-        addDescription="Let create new deposit. Simply enter the amount of
-      the new deposit account."
+        className={styles.item}
+        addTitle="Create deposit"
+        addDescription="Please enter the amount of new deposit account. It like pass the amount into input field and new deposit account would be created with the amount that you passed in."
       >
         <TextField
           label="Amount"
-          variant="outlined"
+          variant="standard"
           className={styles.input}
           onChange={(e) => setAmount({ value: e.target.value })}
         />

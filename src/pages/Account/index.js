@@ -32,11 +32,8 @@ const Account = ({ location }) => {
       title={`Address: ${accountFormRoute.address}, amount: $${accountFormRoute.amount}`}
     >
       <div className={styles.root}>
-        <UserCard />
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <DepositCard account={accountFormRoute} />
-          <CreditCard account={accountFormRoute} />
-        </div>
+        <DepositCard account={accountFormRoute} />
+        <CreditCard account={accountFormRoute} />
       </div>
     </HeaderContainer>
   );

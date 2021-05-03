@@ -26,7 +26,6 @@ const Wallet = () => {
   return (
     <HeaderContainer>
       <div className={styles.root}>
-        <UserCard />
         <AccountCard />
       </div>
     </HeaderContainer>

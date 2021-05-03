@@ -14,9 +14,9 @@ import api from "../../services";
 import styles from "./styles.module.scss";
 
 const percents = {
-  3: 18,
-  6: 15,
-  12: 12,
+  12: 10,
+  24: 8,
+  36: 6,
 };
 
 const CreditCard = ({ account }) => {
@@ -114,13 +114,13 @@ const CreditCard = ({ account }) => {
         onAdd={handleSave}
         Item={Item}
         items={credits}
-        addTitle="Create new Credit"
-        addDescription="Let create new credit. Simply enter the amount of
-      the new credit, time for return money."
+        className={styles.item}
+        addTitle="Create credit"
+        addDescription="Please enter the amount and time for return money of new credit. It like pass the amount and time into input field and radio, then and new credit would be created with the amount that you passed in and time that you have picked."
       >
         <TextField
           label="Amount"
-          variant="outlined"
+          variant="standard"
           className={styles.input}
           onChange={(e) => setAmount({ value: e.target.value })}
         />
@@ -130,9 +130,21 @@ const CreditCard = ({ account }) => {
           value={month}
           onChange={handleMonthChange}
         >
-          <FormControlLabel value={"3"} control={<Radio />} label="3 month" />
-          <FormControlLabel value={"6"} control={<Radio />} label="6 month" />
-          <FormControlLabel value={"12"} control={<Radio />} label="12 month" />
+          <FormControlLabel
+            value={"12"}
+            control={<Radio color="primary" />}
+            label="12 month"
+          />
+          <FormControlLabel
+            value={"24"}
+            control={<Radio color="primary" />}
+            label="24 month"
+          />
+          <FormControlLabel
+            value={"36"}
+            control={<Radio color="primary" />}
+            label="36 month"
+          />
         </RadioGroup>
       </ItemContainer>
       <AddDialog
@@ -144,7 +156,7 @@ const CreditCard = ({ account }) => {
       >
         <TextField
           label="Amount"
-          variant="outlined"
+          variant="standard"
           className={styles.input}
           onChange={(e) => setAmount({ value: e.target.value })}
         />

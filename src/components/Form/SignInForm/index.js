@@ -29,14 +29,14 @@ const SignInForm = ({ history }) => {
     <FormControl className={styles.form}>
       <TextField
         label="Email"
-        variant="outlined"
+        variant="standard"
         className={styles.input}
         onChange={(e) => setEmail(e.target.value)}
       />
       <TextField
         label="Password"
         type="password"
-        variant="outlined"
+        variant="standard"
         className={styles.input}
         onChange={(e) => setPassword(e.target.value)}
       />
